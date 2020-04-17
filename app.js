@@ -4,6 +4,11 @@ const btnCancel = document.querySelector('#btn-cancel')
 const btnConfirm = document.querySelector('#btn-confirm')
 const listExpense = document.querySelector('#expenses-list')
 
+const clear = () => {
+    inputReason.value = '';
+    inputAmount.value = '';
+};
+
 btnConfirm.addEventListener('click', () => {
     const enteredReason = inputReason.value;
     const enteredAmount = inputAmount.value;
@@ -18,4 +23,7 @@ btnConfirm.addEventListener('click', () => {
     const newItem = document.createElement('ion-item');
     newItem.textContent = enteredReason + ': $' + enteredAmount;
     listExpense.appendChild(newItem);
+    clear();
 });
+
+btnCancel.addEventListener('click', clear);
