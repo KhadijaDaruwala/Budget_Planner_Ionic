@@ -4,6 +4,8 @@ const btnCancel = document.querySelector('#btn-cancel');
 const btnConfirm = document.querySelector('#btn-confirm');
 const listExpense = document.querySelector('#expenses-list');
 const totalExpensesOutput = document.querySelector('#total-expenses');
+//const alertCtrl = document.querySelector('#ion-alert-controller');
+const alert = document.createElement('ion-alert')
 
 let totalExpenses = 0;
 
@@ -17,12 +19,27 @@ btnConfirm.addEventListener('click', () => {
     const enteredAmount = inputAmount.value;
 
     if (
-        enteredReason.trim().length <= 0 || 
-        enteredAmount <= 0 || 
+        enteredReason.trim().length <= 0 ||
+        enteredAmount <= 0 ||
         enteredAmount.trim().length <= 0) {
+        console.log('Reached create')
+
+        // alertCtrl.createElement({
+        //     message: 'Please enter a valid reason and amount!',
+        //     header: 'Invalid',
+        //     buttons: ['Okay']
+        // }).then(alertElement => {
+        //     console.log('Reached alertElement')
+        //     alertElement.present();
+        // });
+        alert.header = 'Invalid Inputs!';
+        alert.message = 'Please enter a valid reason and amount!';
+        alert.buttons = ['Okay'];
+        document.body.appendChild(alert);
+        alert.present();
         return;
     }
-    
+
     const newItem = document.createElement('ion-item');
     newItem.textContent = enteredReason + ': $' + enteredAmount;
     listExpense.appendChild(newItem);
