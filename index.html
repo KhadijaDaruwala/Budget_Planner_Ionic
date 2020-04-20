@@ -41,7 +41,7 @@
                     <ion-label position="floating">Expense Amount</ion-label>
                     <ion-input type="number" id="input-amount"></ion-input>
                   </ion-item>
-                  <div margin-vertical text-right>
+                  <div class="ion-margin , ion-text-right">
                     <ion-button fill="outline" color="danger" id="btn-cancel">
                       <ion-icon slot="start" name="close"></ion-icon
                       >Clear</ion-button
@@ -56,13 +56,13 @@
             </ion-col>
           </ion-row>
           <ion-row>
-            <ion-col>
+            <ion-col size-md="6" offset-md="3">
               <ion-list id="expenses-list"></ion-list>
             </ion-col>
           </ion-row>
           <ion-row>
-            <ion-col>
-              <p>Total Expenses: <span id="total-expenses"></span></p>
+            <ion-col size-md="6" offset-md="3">
+              <p class="ion-padding">Total Expenses: <span id="total-expenses"></span></p>
             </ion-col>
           </ion-row>
         </ion-grid>
