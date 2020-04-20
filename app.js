@@ -41,10 +41,12 @@ btnConfirm.addEventListener('click', () => {
     }
 
     const newItem = document.createElement('ion-item');
-    newItem.textContent = enteredReason + ': $' + enteredAmount;
+    newItem.innerHTML = `${enteredReason}: <strong>&nbsp; $${enteredAmount}</strong>`
+   // newItem.textContent = enteredReason + ': $' + enteredAmount;
     listExpense.appendChild(newItem);
     totalExpenses += +enteredAmount;
-    totalExpensesOutput.textContent = '$' + totalExpenses;
+   // totalExpensesOutput.textContent = '$' + totalExpenses;
+    totalExpensesOutput.innerHTML = `<strong> $${totalExpenses}</strong>`
     clear();
 });
 
